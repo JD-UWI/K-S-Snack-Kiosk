@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="static/L4UI.css">
+  </head>
+  <body>
+    <!-- (A) ITEMS LIST -->
+    <h1>Items</h1>
+
+    <div id="itemWrap">
+      <div id="itemAdd" class="row">
+        <a href="/newitem"><i class="mi">add</i></a> <!-- add new button -->
+      </div>
+        {% for item in items %}
+        <div id="itemList" class="row">{{item}}</div>
+        {% endfor %}
+    </div>
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+# (A) INIT
+# (A1) LOAD MODULES
+from flask import Flask, render_template, request, make_response, escape
+import sqlite3, json
+
+
+# (A2) FLASK SETTINGS + INIT
+HOST_NAME = "localhost"
+HOST_PORT = 80
+DB = "inventory.db"
+app = Flask(__name__)
+# app.debug = True
+
+def select (sql, data=[]):
+  conn = sqlite3.connect(DB)
+  cursor = conn.cursor()
+  cursor.execute(sql, data)
+  results = cursor.fetchall()
+  conn.close()
+  return results
+
+# (D) GET ALL ITEMS
+def getAll ():
+  return select("SELECT * FROM `items`")
+
+# (B) HELPER - RUN SQL QUERY
+def query (sql, data):
+  conn = sqlite3.connect(DB)
+  cursor = conn.cursor()
+  cursor.execute(sql, data)
+  conn.commit()
+  conn.close()
+
+# (G) SAVE ITEM Function
+def save (Itemname,ID,qty,cost,suplier,supemail):
+  # (G1) ADD NEW
+  query(
+      """INSERT INTO "items" 
+      (`item_name`, `item_ID`, `item_qty`, `item_cost`, 'suplname', 'suplemail') 
+      VALUES (?, ?, ?, ?, ?, ?)""",
+      [Itemname,ID,qty,cost,suplier,supemail])
+  
+
+#Main Page
+@app.route("/")
+def main():
+  items = getAll()
+  return render_template("L4Main.html", items=items)
+
+#Add New Item
+@app.route("/newitem", methods=['GET', 'POST'])
+def add():
+  if request.method == 'POST':
+    nm = request.form.get("item_name")
+    iID = request.form.get("item_ID")
+    qty = request.form.get("itemQty") 
+    cost = request.form.get("item_cost")
+    isn = request.form.get("suplname") 
+    ise = request.form.get("suplemail")
+    save(nm,iID,qty,cost,isn,ise)
+  return render_template("L4Add.html")
+
+
+
+# (D) START
+if __name__ == "__main__":
+  app.run(HOST_NAME, HOST_PORT)
