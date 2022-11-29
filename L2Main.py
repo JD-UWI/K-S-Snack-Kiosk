@@ -39,7 +39,14 @@ def save (Itemname,ID,qty,cost,suplier,supemail):
       (`item_name`, `item_ID`, `item_qty`, `item_cost`, 'suplname', 'suplemail') 
       VALUES (?, ?, ?, ?, ?, ?)""",
       [Itemname,ID,qty,cost,suplier,supemail])
-  
+
+# Modify Item Function
+def edit (Itemname,ID,qty,cost,suplier,supemail):
+  query(
+    """UPDATE "items"
+    SET (`item_name`, `item_ID`, `item_qty`, `item_cost`, 'suplname', 'suplemail')
+    VALUES (?, ?, ?, ?, ?, ?)""",
+    [Itemname,ID,qty,cost,suplier,supemail])    
 
 #Main Page
 @app.route("/")
@@ -60,6 +67,18 @@ def add():
     save(nm,iID,qty,cost,isn,ise)
   return render_template("L4Add.html")
 
+#Modify  Item
+@app.route("/modify", methods=['GET', 'POST'])
+def modify():
+  if request.method == 'POST':
+    nm = request.form.get("item_name")
+    iID = request.form.get("item_ID")
+    qty = request.form.get("itemQty") 
+    cost = request.form.get("item_cost")
+    isn = request.form.get("suplname") 
+    ise = request.form.get("suplemail")
+    edit(nm,iID,qty,cost,isn,ise)
+  return render_template("L4ModifyItem.html")
 
 
 # (D) START
