@@ -2,7 +2,7 @@ import sqlite3, os
 from sqlite3 import Error
 
 DB = "inventory.db"  #stores database into DB variable
-SQLFILE = "S1A_inventory.sql"  #stores SQLfile into SQLFILE variable
+SQLFILE = "L1A_inventory.sql"  #stores SQLfile into SQLFILE variable
 
 #Delete pre-existing databases
 if os.path.exists(DB):
