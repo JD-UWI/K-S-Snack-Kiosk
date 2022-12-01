@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="static/L4UI.css">
+  </head>
+  <body>
+
+
+        <!-- (B) SEARCH ITEM -->
+<h1>Search for an Item</h1>
+
+<form method = "post">
+    <legend>Choose a field to search with:</legend>
+
+    <div>
+      <label for="itemName">Item Name:</label>
+      <input type="text" id="iteN" name="itemN">
+      
+    </div>
+
+    <div>
+      <label for="ite#">Item ID:</label>
+      <input type="text" id="ite#" name="item#" >
+      
+    </div>
+<input type = "submit">
+<br>
+<br>
+<div id="itemFound" class="row">{{info}}</div>	    
+   
+</form>
+
+<button><a href = "/"> Return </a></button>
+
+
+

@@ -80,7 +80,42 @@ def modify():
     edit(nm,iID,qty,cost,isn,ise)
   return render_template("L4ModifyItem.html")
 
+#Show Item
+def showIT(a, c):
+  b = getAll()
+  r = 0
+  d = 0
+  i = []
+  while d == 0:
+    if a == b[r][c]:
+      i = b[r]
+      d +=1
+    else:
+      r += 1
+    if r > len(b)-1:
+      return ["Item doesn't exist in Database. Please ensure that Name/ID was entered correctly",-1]
+      d -= 1
+  return i
 
+#Search Item
+@app.route("/search", methods=['GET', 'POST'])
+def search():
+  w = []
+  if request.method == 'POST':
+   
+   n = request.form.get("itemN")
+   d = request.form.get("item#")
+   if n == '' or n == None:
+       w = showIT(d, 1)
+   else: 
+       w = showIT(n, 0)
+  return render_template("L4SearchItem.html", info = w)
+  
+
+
+
+
+    
 # (D) START
 if __name__ == "__main__":
   app.run(HOST_NAME, HOST_PORT)

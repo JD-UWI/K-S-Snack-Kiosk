@@ -10,11 +10,14 @@
 
     <div id="itemWrap">
       <div id="itemAdd" class="row">
+	<a href="/search"><i class="mi">search</i></a> <!-- add new button -->
         <a href="/newitem"><i class="mi">add</i></a> <!-- add new button -->
       </div>
         {% for item in items %}
         <div id="itemList" class="row">{{item}}</div>
         {% endfor %}
+	<div id="itemSearch" class = "row">
+	
     </div>
       
     </div>
