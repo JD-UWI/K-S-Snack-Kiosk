@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="static/L4UI.css">
   </head>
   <body>
-    <!-- (A) ITEMS LIST -->
+    <!-- ITEMS LIST -->
     <h1>Items</h1>
 
     <div id="itemWrap">
@@ -15,15 +15,16 @@
          
       </div>
 
-      <a href="/newitem" style="text-decoration:none"><div id="itemAdd" class="row">
-        <i class="mi">add_box</i>
-      </div></a> <!-- add new button -->
+    
+
+      <a href="/adddelete" style="text-decoration:none"><div id="itemAdd" class="row">
+        <i class="mi">add_box</i>/<i class="mi">delete</i>Add/Delete
+      </div></a> <!-- add/delete button -->
 
         {% for item in items %}
         <div  id="itemList" class="row">
           <div style="width: 100%">{{item}}</div>
-          <div  style="display: inline-block; text-align: right; width: 45%"><i class="mi">delete</i>
-        </div>
+          
       </div>
         {% endfor %}
 
