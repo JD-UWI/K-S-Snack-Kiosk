@@ -41,11 +41,12 @@ def save (Itemname,qty,cost,suplier,supemail):
       [Itemname,qty,cost,suplier,supemail])
 
 # Modify Item Function
-def edit (name,qty,cost,suplier,supemail):
+def edit (item_ID,name,qty,cost,suplier,supemail):
   query(
     """UPDATE "items"
     SET (`item_name`, `item_qty`, `item_cost`, 'suplname', 'suplemail')
-    VALUES ( ?, ?, ?, ?, ?)""",
+    VALUES ( ?, ?, ?, ?, ?)
+    WHERE item_ID = ID """,
     [name,qty,cost,suplier,supemail])    
 
 #Main Page

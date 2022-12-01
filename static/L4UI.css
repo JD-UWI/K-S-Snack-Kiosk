@@ -16,7 +16,9 @@ body {
 #itemAdd, #iFormClose, input[type=button], input[type=submit] {
   cursor: pointer;
 }
-select, input { padding: 10px; }
+select, input { 
+  padding: 10px; 
+}
 select, input[type=text], input[type=number] {
   border: 1px solid #b3b3b3;
 }

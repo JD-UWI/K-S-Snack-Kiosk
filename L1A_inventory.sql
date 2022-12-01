@@ -1,12 +1,12 @@
 -- ITEMS TABLE
 CREATE TABLE items (
   ID NOT NULL PRIMARY KEY AUTOINCREMENT,
-  item_ID VARCHAR(45) NOT NULL IDENTITY(Item101,3),
-  item_name VARCHAR(45) NOT NULL ,
+  item_ID VARCHAR(45) NOT NULL,
+  item_name VARCHAR(45),
   item_qty INTEGER NOT NULL,
-  item_cost VARCHAR(45) NOT NULL,
+  item_cost FLOAT NOT NULL,
   suplname VARCHAR(45),
-  suplemail VARCHAR(45),
+  suplemail VARCHAR(45)
 );
 
 CREATE INDEX `item_name`
@@ -24,7 +24,7 @@ CREATE TABLE `item_mvt` (
   mvt_date TEXT,
   mvt_direction VARCHAR(45) NOT NULL,
   mvt_qty INTEGER NOT NULL,
-  mvt_notes VARCHAR(45),
+  mvt_notes VARCHAR(45)
 );
 
 CREATE INDEX `mvt_direction`
