@@ -67,6 +67,11 @@ def add():
     save(nm,qty,cost,isn,ise)
   return render_template("L4Add.html")
 
+@app.route("/delete<string:ID>")
+def delete (ID):
+  query("DELETE FROM `items` WHERE `item_ID`=?", [ID])
+  return render_template("L4AddDelete.html", items=getAll())
+
 @app.route("/adddelete")
 def AD():
   items = getAll()
