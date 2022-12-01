@@ -9,15 +9,25 @@
     <h1>Items</h1>
 
     <div id="itemWrap">
+
       <div id="itemAdd" class="row">
 	<a href="/search"><i class="mi">search</i></a> <!-- add new button -->
-        <a href="/newitem"><i class="mi">add</i></a> <!-- add new button -->
+         
       </div>
+
+      <a href="/newitem" style="text-decoration:none"><div id="itemAdd" class="row">
+        <i class="mi">add_box</i>
+      </div></a> <!-- add new button -->
+
         {% for item in items %}
-        <div id="itemList" class="row">{{item}}</div>
+        <div  id="itemList" class="row">
+          <div style="width: 100%">{{item}}</div>
+          <div  style="display: inline-block; text-align: right; width: 45%"><i class="mi">delete</i>
+        </div>
+      </div>
         {% endfor %}
-	<div id="itemSearch" class = "row">
-	
+
+
     </div>
       
     </div>
