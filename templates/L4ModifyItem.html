@@ -1,31 +1,36 @@
-<!DOCTYPE html>
-<html>
-  <head>
+{% extends 'L4Main.html' %}
+
+{% block head %} 
     <title>Inventory Management</title>
-    <link rel="stylesheet" href="static/L4UI.css">
-  </head>
-  <body>
+{% endblock %}
 
+{% block body %} 
+<div class="container">
+    <h1>Edit items</h1>
 
-        <!-- (C) EDIT ITEM -->
-<h1>Modify Item</h1>
-<form method="post">
-  <label for="itemName">Item Name:</label>
-  <input type="text" id="itemName" name="item_name" />
-  <br>
-  <label for="itemQty">Item Quantity:</label>
-  <input type="text" id="" name="itemQty" />
-  <br>
-  <label for="itemCost">Item Cost:</label>
-  <input type="text" id="itemCost" name="item_cost" />
-  <br>
-  <label for="suppliername">Supplier Name:</label>
-  <input type="text" id="suppliername" name="suplname" />
-  <br>
-  <label for="supplieremail">Supplier Email:</label>
-  <input type="text" id="supplieremail" name="suplemail" />
-  <br>
-  <input type="submit"> <a href="/">Return</a>
-</form>
+        <form method="post">
 
-</html>
+          <label for="item_name">Item Name:</label>
+          <input type="text" name="itemName" id="item_name" />
+          <br>
+          <label for="item_qty">Item Quantity:</label>
+          <input type="int" name="Quantity" id="item_qty" />
+          <br>
+          <label for="item_cost">Item Cost:</label>
+          <input type="float" name="itemCost" id="item_cost" />
+          <br>
+          <label for="suplname">Supplier Name:</label>
+          <input type="text" name="supplierName" id="suplname" />
+          <br>
+          <label for="suplemail">Supplier Email:</label>
+          <input type="text" name="supplierEmail" id="suplemail" />
+          <br>
+          <input type="submit" value="Confirm"> <button><a href="/">Return</a></button>
+        </form>
+
+</div>
+{% endblock %}
+
+{% block foot %}
+<p>Copyright &copy; 2022, K&S Snack Kiosk</p>
+{% endblock %}
