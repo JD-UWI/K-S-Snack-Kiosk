@@ -64,7 +64,7 @@ def add():
     cost = request.form.get("item_cost")
     isn = request.form.get("suplname") 
     ise = request.form.get("suplemail")
-    save(nm,iID,qty,cost,isn,ise)
+    save(nm,qty,cost,isn,ise)
   return render_template("L4Add.html")
 
 @app.route("/adddelete")
@@ -82,7 +82,7 @@ def modify():
     cost = request.form.get("item_cost")
     isn = request.form.get("suplname") 
     ise = request.form.get("suplemail")
-    edit(nm,iID,qty,cost,isn,ise)
+    edit(nm,qty,cost,isn,ise)
   return render_template("L4ModifyItem.html")
 
 #Show Item

@@ -1,12 +1,12 @@
 -- ITEMS TABLE
 CREATE TABLE items (
-  item_name TEXT NOT NULL,
-  item_ID TEXT,
+  ID NOT NULL PRIMARY KEY AUTOINCREMENT,
+  item_ID VARCHAR(45) NOT NULL IDENTITY(Item101,3),
+  item_name VARCHAR(45) NOT NULL ,
   item_qty INTEGER NOT NULL,
-  item_cost TEXT NOT NULL,
-  suplname TEXT,
-  suplemail TEXT,
-  PRIMARY KEY("item_ID")
+  item_cost VARCHAR(45) NOT NULL,
+  suplname VARCHAR(45),
+  suplemail VARCHAR(45),
 );
 
 CREATE INDEX `item_name`
@@ -14,17 +14,17 @@ CREATE INDEX `item_name`
 
 -- Example DATA
 INSERT INTO "items" VALUES
-('Item','ID#','10','$123','SupliersRUs','SRUs@email.com'),
-('Item','ID#2','10','$123','SupliersRUs','SRUs@email.com');
+(NULL,NULL,'Item1',10,101.00,'SupliersRUs','SRUs@email.com'),
+(NULL,NULL,'Item2',15,115.23,'SupliersRUs','SRUs@email.com');
 
 -- ITEMS MOVEMENT
 CREATE TABLE `item_mvt` (
-  item_ID TEXT,
+  mvt_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  item_ID INTEGER,
   mvt_date TEXT,
-  mvt_direction TEXT NOT NULL,
+  mvt_direction VARCHAR(45) NOT NULL,
   mvt_qty INTEGER NOT NULL,
-  mvt_notes TEXT,
-  PRIMARY KEY("item_ID", "mvt_date")
+  mvt_notes VARCHAR(45),
 );
 
 CREATE INDEX `mvt_direction`
