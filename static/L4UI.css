@@ -108,15 +108,40 @@ select, input {
 }
 
 /* (C) ITEMS + MOVEMENT LIST */
-/**#itemWrap, #moveWrap {
+#itemWrap, #moveWrap {
   max-width: 800px;
   margin: 0 auto;
   padding: 10px;
+}
+.row {
+  display: flex;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #d3d3d3;
+  background: #fff;
+}
+#itemAdd {
+  width: 100%;
+  padding: 20px 0;
+  border: 2px dashed #d3d3d3;
+  align-items: center;
+  justify-content: center;
+}
+.row .info {
+  flex-grow: 1;
+  padding: 10px;
+}
+.info .item { font-weight: 700; }
+.info .stock {
+  margin-top: 5px;
+  color: #6c6c6c;
+}
+.row input.mi {
+  color: #6a84e3;
   background: #fff;
   border: 0;
   padding: 0 10px;
-
-}*/
+}
 
 /* (D) ADD/EDIT ITEM FORM */
 /**#iFormClose, #iFormWrap input[type=submit], #iFormWrap input[type=submit] {

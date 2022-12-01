@@ -5,12 +5,18 @@
 {% endblock %}
 
 {% block body %}
+<div id="itemWrap">
 
+     
+
+      <a href="/newitem" style="text-decoration:none"><div id="itemAdd" class="row">
+        <i class="mi">add_box</i>
+      </div></a> <!-- add new button -->
   {% for item in items %}
     <div  id="itemList" class="row">
         <div style="width: 100%">{{item}}</div>
         <div ><button><a href = "/delete{{ item[1] }}"><i class="mi">delete</i></a></button></div>
-        <a href="/modify" class="button">edit</a>
+
     </div>
   {% endfor %}
   <button><a href = "/"> Return </a></button>
