@@ -67,6 +67,11 @@ def add():
     save(nm,iID,qty,cost,isn,ise)
   return render_template("L4Add.html")
 
+@app.route("/adddelete")
+def AD():
+  items = getAll()
+  return render_template("L4AddDelete.html", items=items)
+
 #Modify  Item
 @app.route("/modify", methods=['GET', 'POST'])
 def modify():
