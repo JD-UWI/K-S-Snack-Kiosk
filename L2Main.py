@@ -32,21 +32,21 @@ def query (sql, data):
   conn.close()
 
 # (G) SAVE ITEM Function
-def save (Itemname,ID,qty,cost,suplier,supemail):
+def save (Itemname,qty,cost,suplier,supemail):
   # (G1) ADD NEW
   query(
       """INSERT INTO "items" 
-      (`item_name`, `item_ID`, `item_qty`, `item_cost`, 'suplname', 'suplemail') 
-      VALUES (?, ?, ?, ?, ?, ?)""",
-      [Itemname,ID,qty,cost,suplier,supemail])
+      (`item_name`, `item_qty`, `item_cost`, 'suplname', 'suplemail') 
+      VALUES (?, ?, ?, ?, ?)""",
+      [Itemname,qty,cost,suplier,supemail])
 
 # Modify Item Function
-def edit (Itemname,ID,qty,cost,suplier,supemail):
+def edit (name,qty,cost,suplier,supemail):
   query(
     """UPDATE "items"
-    SET (`item_name`, `item_ID`, `item_qty`, `item_cost`, 'suplname', 'suplemail')
-    VALUES (?, ?, ?, ?, ?, ?)""",
-    [Itemname,ID,qty,cost,suplier,supemail])    
+    SET (`item_name`, `item_qty`, `item_cost`, 'suplname', 'suplemail')
+    VALUES ( ?, ?, ?, ?, ?)""",
+    [name,qty,cost,suplier,supemail])    
 
 #Main Page
 @app.route("/")
@@ -59,7 +59,7 @@ def main():
 def add():
   if request.method == 'POST':
     nm = request.form.get("item_name")
-    iID = request.form.get("item_ID")
+    #iID = request.form.get("item_ID")
     qty = request.form.get("itemQty") 
     cost = request.form.get("item_cost")
     isn = request.form.get("suplname") 
@@ -72,7 +72,7 @@ def add():
 def modify():
   if request.method == 'POST':
     nm = request.form.get("item_name")
-    iID = request.form.get("item_ID")
+    #iID = request.form.get("item_ID")
     qty = request.form.get("itemQty") 
     cost = request.form.get("item_cost")
     isn = request.form.get("suplname") 
