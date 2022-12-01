@@ -1,6 +1,6 @@
 # (A) INIT
 # (A1) LOAD MODULES
-from flask import Flask, render_template, request, make_response, escape
+from flask import Flask, render_template, request, make_response, escape, url_for
 import sqlite3, json
 
 
@@ -40,19 +40,23 @@ def save (Itemname,qty,cost,suplier,supemail):
       VALUES (?, ?, ?, ?, ?)""",
       [Itemname,qty,cost,suplier,supemail])
 
+def __repr__(self):
+  return '<Item %r>' % self.id
+
 # Modify Item Function
-def edit (name,qty,cost,suplier,supemail):
+def edit (item_ID,name,qty,cost,suplier,supemail):
   query(
     """UPDATE "items"
     SET (`item_name`, `item_qty`, `item_cost`, 'suplname', 'suplemail')
-    VALUES ( ?, ?, ?, ?, ?)""",
+    VALUES ( ?, ?, ?, ?, ?)
+    WHERE item_ID = ID """,
     [name,qty,cost,suplier,supemail])    
 
 #Main Page
 @app.route("/")
 def main():
-  items = getAll()
-  return render_template("L4Main.html", items=items)
+    items = getAll()
+    return render_template("L4Main.html", items = items)
 
 #Add New Item
 @app.route("/newitem", methods=['GET', 'POST'])
@@ -73,9 +77,12 @@ def AD():
   return render_template("L4AddDelete.html", items=items)
 
 #Modify  Item
+#@app.route('/modify/<int:id>', methods=['GET', 'POST'])
 @app.route("/modify", methods=['GET', 'POST'])
 def modify():
   if request.method == 'POST':
+    #pass
+    #else:
     nm = request.form.get("item_name")
     #iID = request.form.get("item_ID")
     qty = request.form.get("itemQty") 
