@@ -19,7 +19,7 @@
         {% for item in items %}
         <div  id="itemList" class="row">
           <div style="width: 100%">{{item}}</div>
-          <div  style="display: inline-block; text-align: right; width: 45%"><i class="mi">delete</i>
+          <div ><button><a href = "/delete{{ item[1] }}"><i class="mi">delete</i></a></button>
         </div>
       </div>
         {% endfor %}
