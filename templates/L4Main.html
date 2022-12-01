@@ -15,25 +15,20 @@
          
       </div>
 
-    
-
       <a href="/adddelete" style="text-decoration:none"><div id="itemAdd" class="row">
         <i class="mi">add_box</i>/<i class="mi">delete</i>Add/Delete
       </div></a> <!-- add/delete button -->
 
         {% for item in items %}
         <div  id="itemList" class="row">
-<<<<<<< HEAD
+
           <div style="width: 100%">
             {{item}}
             <a href="L4ModifyItem.html" class="button">edit</a>
           </div>
-          <div  style="display: inline-block; text-align: right; width: 45%"><i class="mi">delete</i>
+          <div  style="display: inline-block; text-align: right; width: 45%">
         </div>
-=======
-          <div style="width: 100%">{{item}}</div>
-          
->>>>>>> origin/AddDelete
+
       </div>
         {% endfor %}
 
