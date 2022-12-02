@@ -1,0 +1,25 @@
+{% extends 'L4Main.html' %}
+
+{% block head %} 
+    <title>Inventory Management</title>
+{% endblock %}
+
+{% block body %} 
+<div class="container">
+    <h1>Edit items</h1>
+
+    {% for item in items %}
+    <div  id="itemList" class="row">
+        <div style="width: 100%">{{item}}</div>
+        <div ><button><a href = "/editable-items/modify">edit<i class="mi">modify</i></a></button></div>
+
+    </div>
+  {% endfor %}
+  <button><a href = "/"> Return </a></button>
+
+</div>
+{% endblock %}
+
+{% block foot %}
+<p>Copyright &copy; 2022, K&S Snack Kiosk</p>
+{% endblock %}

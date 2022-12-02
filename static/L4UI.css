@@ -8,24 +8,114 @@
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
+
 body {
-  padding: 0;
-  margin: 0;
-  background: #f1f1f1;
+  margin: auto;
+  padding: auto;
+  background-color: rgb(241, 238, 238);
 }
-#itemAdd, #iFormClose, input[type=button], input[type=submit] {
+
+header, h1{
+  text-align: center;
+  color: white;
+  background-color: #5183b3;
+  font-size: 20px;
+  padding: 3%;
+  margin: auto;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+h2{
+  color: black;
+  font-size: 20px;
+  padding: 3%;
+  margin: auto;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.a{
+  text-decoration: none;
+}
+.container {
+  background-color: rgb(214, 226, 226);
+  padding: 5%;
+
+}
+
+#dash-nav{
+  background-color: rgb(144, 150, 150);
+  padding: 20px;
+  margin: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+}
+
+.dashboard{
+  background-color: rgb(144, 150, 150);
+  margin: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 150px;
+  display:contents;
+  
+}
+.dashboard notifications{
+  background-color: rgb(29, 230, 230);
+  margin: 50px;
+  padding: 250px;
+  width: 100%;
+}
+
+/* (A) CONTAINER */
+#item-preview{
+  /* (A1) GRID LAYOUT */
+  display: grid;
+   /* (A2) SPECIFY COLUMNS */
+  grid-template-columns: 1fr;
+  column-gap: 5px;
+  margin: auto;
+}
+
+/* (B) RESPONSIVE - 1 COLUMN ON SMALL SCREENS */
+@media screen and (max-width: 640px) {
+  #item-preview { grid-template-columns: 100%; }
+}
+/**#itemAdd, #iFormClose, input[type=button], input[type=submit] {*/
+
+form{
+  text-align: center;
+  font-weight: bold;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1;
+  grid-template-rows: 1fr;
+  font-size: 20px;
+}
+
+footer{
+  text-align: center;
+  margin: auto;
+  padding-top: 1%;
+  padding-left: auto;
+  padding-bottom: 1%;
+  padding-right: auto;
+  background-color: #2C5282;
+  color: #FFFFFF;
+
+}
+ #itemAdd, #iFormClose, input[type=button], input[type=submit] {
   cursor: pointer;
 }
-select, input { padding: 10px; }
-select, input[type=text], input[type=number] {
-  border: 1px solid #b3b3b3;
+
+select, input { 
+  padding: 10px; 
 }
-label {
-  font-size: 14px;
-  color: #6c6c6c;
-  margin: 10px 0;
+
+.hide { 
+  display: none !important; 
 }
-.hide { display: none !important; }
 
 /* (C) ITEMS + MOVEMENT LIST */
 #itemWrap, #moveWrap {
@@ -64,85 +154,51 @@ label {
 }
 
 /* (D) ADD/EDIT ITEM FORM */
-#iFormClose, #iFormWrap input[type=submit], #iFormWrap input[type=submit] {
+/**#iFormClose, #iFormWrap input[type=submit], #iFormWrap input[type=submit] {
   color: #fff;
   background: #a91c1c;
 }
-#iFormWrap input[type=submit], #iFormWrap input[type=submit] {
-  margin-top: 15px;
-  border: 0;
-}
-#iFormWrap {
-  position: fixed;
-  top: 0; left: 0; z-index: 999;
-  width: 100vw; height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#iFormWrap form {
-  width: 400px;
-  padding: 20px;
-  background: #fff;
-  border: 1px solid #d3d3d3;
-  position: relative;
-}
-#iFormClose {
-  position: absolute;
-  top: 0; right: 0;
-  padding: 10px;
-}
+
 #iFormWrap label, #iFormWrap input {
   display: block;
   width: 100%;
-}
+}*/
 
 /* (E) ITEM MOVEMENT */
-#moveBack { cursor: pointer; }
+
+/**#moveBack { 
+  cursor: pointer; 
+}*/
 
 /* (E1) MOVEMENT HEADER & ADD MOVEMENT */
-#moveHead, #moveAdd {
+
+/**#moveHead, #moveAdd {
   display: flex;
   margin-bottom: 10px;
 }
-#moveHead { align-items: center; }
-#moveAdd {
-  background: #fff;
-  align-items: stretch;
+
+#moveAdd input[type=number] { 
+  width: 100px; 
 }
-#moveItem, #moveBack, #moveAdd { padding: 10px; }
-#moveItem { flex-grow: 1; }
-#moveItemName {
-  font-weight: 700;
-  font-size: 24px;
+
+#moveAdd input[type=text] { 
+  flex-grow: 1; 
 }
-#moveItemQty {
-  font-size: 18px;
-  margin-top: 5px;
-}
-#moveBack, #moveAdd input[type=submit] {
-  color: #fff;
-  background: #a91c1c;
-  border: 0;
-}
-#moveAdd select, #moveAdd input {
-  margin: 3px;
-  flex-shrink: 1;
-}
-#moveAdd input[type=number] { width: 100px; }
-#moveAdd input[type=text] { flex-grow: 1; }
+
+#moveAdd input[type=text] { 
+  flex-grow: 1; 
+}*/
 
 /* (E2) MOVEMENT LIST */
-#moveList .row { align-items: center; }
-.row .mqty, .row .minfo { padding: 10px; }
+/**#moveList .row { 
+  align-items: center; 
+}
+
+.row .mqty, .row .minfo { 
+  padding: 10px; 
+}
+
 .row .mqty {
   text-align: center;
-  color: #fff;
-  width: 150px;
-}
-.row .mqtyI { background: #3115cf; }
-.row .mqtyO { background: #b71c1c; }
-.row .mqtyT { background: #0f8d30; }
-.row .mdate { font-weight: 700; }
-.row .mnotes { margin-top: 5px; }
+
+}*/

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>All Notifications</title>
+    <link rel="stylesheet" href="static/L4UI.css">
+  </head>
+  <body>
+    <h1>All Notifications</h1>
+
+    <div class="container">
+      <h3>Set Minimum Stock Level</h3>
+       <form method="post">
+      <div class="form-group">
+          <input type="number" name="number" id="number" placeholder="Set minimum stock level">
+      </div>
+      <button type="submit" class="btn">Confirm</button>
+      </div>
+
+      {% for item in notifs %}
+    <div  id="itemList" class="row">
+        <div style="width: 100%">{{item}}</div>
+        <div ><i class="mi">notifications_active</i></div>
+
+    </div>
+  {% endfor %}
+
+      <button><a href = "/"> Return </a></button>
+        
+  </form>
+  </body>
+</html>

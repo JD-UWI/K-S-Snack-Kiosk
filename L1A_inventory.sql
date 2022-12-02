@@ -1,12 +1,12 @@
 -- ITEMS TABLE
 CREATE TABLE items (
-  item_name TEXT NOT NULL,
-  item_ID TEXT,
+  ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  item_ID VARCHAR(45) NOT NULL,
+  item_name VARCHAR(45),
   item_qty INTEGER NOT NULL,
-  item_cost TEXT NOT NULL,
-  suplname TEXT,
-  suplemail TEXT,
-  PRIMARY KEY("item_ID")
+  item_cost FLOAT NOT NULL,
+  suplname VARCHAR(45),
+  suplemail VARCHAR(45)
 );
 
 CREATE INDEX `item_name`
@@ -14,18 +14,32 @@ CREATE INDEX `item_name`
 
 -- Example DATA
 INSERT INTO "items" VALUES
-('Item','ID#','10','$123','SupliersRUs','SRUs@email.com'),
-('Item','ID#2','10','$123','SupliersRUs','SRUs@email.com');
+(NULL,'ID#','Item1',10,101.00,'SupliersRUs','SRUs@email.com'),
+(NULL,'ID#2','Item2',15,115.23,'SupliersRUs','SRUs@email.com');
 
 -- ITEMS MOVEMENT
 CREATE TABLE `item_mvt` (
-  item_ID TEXT,
+  mvt_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  item_ID INTEGER,
   mvt_date TEXT,
-  mvt_direction TEXT NOT NULL,
+  mvt_direction VARCHAR(45) NOT NULL,
   mvt_qty INTEGER NOT NULL,
-  mvt_notes TEXT,
-  PRIMARY KEY("item_ID", "mvt_date")
+  mvt_notes VARCHAR(45)
 );
 
 CREATE INDEX `mvt_direction`
   ON `item_mvt` (`mvt_direction`);
+
+  -- NOTIFICATIONS TABLE
+CREATE TABLE notifications (
+  notif_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  notif VARCHAR(45) DEFAULT 'Notification',
+  val INTEGER NOT NULL
+);
+
+
+-- Example DATA
+INSERT INTO "notifications" VALUES
+(NULL,'Notification',20),
+(NULL,'This is a notification', 30);
+

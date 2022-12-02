@@ -1,33 +1,42 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Inventory Management</title>
-    <link rel="stylesheet" href="static/L4UI.css">
-  </head>
-  <body>
+{% extends 'L4Main.html' %}
+
+{% block head %} 
+  <title>Inventory Management</title>
+{% endblock %}
+
+{% block body %} 
+<div class="container">
+  <!-- (B) ADD ITEM -->
+  <h1>Add an Item</h1>
+    <form method="post">
+      <label for="itemName">Item Name:</label>
+      <input type="text" id="itemName" name="item_name" required />
+      <br>
+      <label for="itemID">Item ID:</label>
+      <input type="text" id="itemID" name="item_ID" required />
+      <br>
+      <label for="itemQty">Item Quantity:</label>
+      <input type="text" id="" name="itemQty" required />
+      <br>
+      <label for="itemCost">Item Cost:</label>
+      <input type="text" id="itemCost" name="item_cost" required/>
+      <br>
+      <label for="suppliername">Supplier Name:</label>
+      <input type="text" id="suppliername" name="suplname" />
+      <br>
+      <label for="supplieremail">Supplier Email:</label>
+      <input type="text" id="supplieremail" name="suplemail" />
+      <br>
+      <input type="submit"> <button><a href="/adddelete">Return</a></button>
+    </form>
+
+    
+</div>
+{% endblock %}
+
+{%block foot%}
+  <p>Copyright &copy; 2022, K&S Snack Kiosk</p>
+{% endblock %}
 
 
-        <!-- (B) ADD/EDIT ITEM -->
-<h1>Add an Item</h1>
-<form method="post">
-  <label for="itemName">Item Name:</label>
-  <input type="text" id="itemName" name="item_name" />
-  <br>
-  <label for="itemID">Item ID:</label>
-  <input type="text" id="itemID" name="item_ID" />
-  <br>
-  <label for="itemQty">Item Quantity:</label>
-  <input type="text" id="" name="itemQty" />
-  <br>
-  <label for="itemCost">Item Cost:</label>
-  <input type="text" id="itemCost" name="item_cost" />
-  <br>
-  <label for="suppliername">Supplier Name:</label>
-  <input type="text" id="suppliername" name="suplname" />
-  <br>
-  <label for="supplieremail">Supplier Email:</label>
-  <input type="text" id="supplieremail" name="suplemail" />
-  <br>
-  <input type="submit"> <a href="/">Return</a>
-</form>
 

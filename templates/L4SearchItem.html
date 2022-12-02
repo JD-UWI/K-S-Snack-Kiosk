@@ -1,22 +1,22 @@
-<html>
-  <head>
-    <title>Inventory Management</title>
-    <link rel="stylesheet" href="static/L4UI.css">
-  </head>
-  <body>
+{% extends 'L4Main.html' %}
 
+{% block head %} 
+  <title>Inventory Management</title>
+{% endblock %}
 
-        <!-- (B) SEARCH ITEM -->
-<h1>Search for an Item</h1>
+{% block body %} 
+<div class="container">
+    <!-- (B) SEARCH ITEM -->
+  <h1>Search for an Item</h1>
 
-<form method = "post">
-    <legend>Choose a field to search with:</legend>
+    <form method = "post">
+        <h2><legend>Choose a field to search with:</legend></h2>
 
-    <div>
-      <label for="itemName">Item Name:</label>
-      <input type="text" id="iteN" name="itemN">
-      
-    </div>
+        <div id="itemName">
+          <label for="itemName">Item Name:</label>
+          <input type="text" id="iteN" name="itemN">
+        </div>
+
 
     <div>
       <label for="ite#">Item ID:</label>
@@ -44,3 +44,6 @@
 </body>
 </html>
 
+{%block foot%}
+<p>Copyright &copy; 2022, K&S Snack Kiosk</p>
+{% endblock %}
