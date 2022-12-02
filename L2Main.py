@@ -45,13 +45,12 @@ def save (Itemid, Itemname,qty,cost,suplier,supemail):
       [Itemid, Itemname,qty,cost,suplier,supemail])
 
 # Modify Item Function
-#def edit (Itemid,name,qty,cost,suplier,supemail):
-#  query(
-#    """UPDATE "items"
-#    SET ('item_ID', `item_name`, `item_qty`, `item_cost`, 'suplname', 'suplemail')
-#    VALUES (?, ?, ?, ?, ?, ?)
-#    WHERE `ID`=? """,
-#    [Itemid,name,qty,cost,suplier,supemail])    
+def edit(Itemid, Itemname,qty,cost,suplier,supemail):
+  query(
+    """UPDATE "items"
+    SET ('item_ID', `item_name`, `item_qty`, `item_cost`, 'suplname', 'suplemail')
+    VALUES (?, ?, ?, ?, ?, ?)""",
+    [Itemid, Itemname,qty,cost,suplier,supemail])    
 
 #Main Page
 @app.route("/")
@@ -88,18 +87,6 @@ def editableItems():
   items =getAll()
   return render_template("L4ModifyItems.html", items=items)  
 
-@app.route("/edit<string:ID>")
-def editItem(ID):
-  items =getAll()
-  def edit(iID, nm,qty,cost,isn,ise):
-    query(
-    """UPDATE "items"
-    SET ('item_ID', `item_name`, `item_qty`, `item_cost`, 'suplname', 'suplemail')
-    VALUES [iID,nm,qty,cost,isn,ise]
-    WHERE `ID`=? """,[ID])
-
-  return render_template("L4ModifyItems.html", items=getAll())  
-
 @app.route("/editable-items/modify", methods=['GET', 'POST'])
 def modify():
   if request.method == 'POST':
@@ -109,8 +96,15 @@ def modify():
     cost = request.form.get("item_cost")
     isn = request.form.get("suplname") 
     ise = request.form.get("suplemail")
-  #  editItem(iID, nm,qty,cost,isn,ise)
+    #edit(iID, nm,qty,cost,isn,ise)
   return render_template("L4ModifyItem.html")
+
+@app.route("/edit<string:ID>")
+def editItem(ID):
+  item =query("SELECT * FROM `items` WHERE `ID`=?", [ID])
+  return render_template("L4ModifyItems.html", items=item)  
+
+
 
 
 

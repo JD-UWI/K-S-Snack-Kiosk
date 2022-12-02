@@ -32,12 +32,14 @@ CREATE INDEX `mvt_direction`
 
   -- NOTIFICATIONS TABLE
 CREATE TABLE notifications (
-  notif VARCHAR(45) NOT NULL
+  notif_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  notif VARCHAR(45) DEFAULT 'Notification',
+  val INTEGER NOT NULL
 );
 
 
 -- Example DATA
 INSERT INTO "notifications" VALUES
-('Notification'),
-('This is a notification');
+(NULL,'Notification',20),
+(NULL,'This is a notification', 30);
 

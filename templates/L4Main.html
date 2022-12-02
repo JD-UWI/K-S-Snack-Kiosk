@@ -34,7 +34,7 @@
             <i class="mi">search</i> Search
           </div></a>
           <br>
-          <a href="/editable" style="text-decoration:none"><div id="itemAdd" class="row">
+          <a href="/editable-items" style="text-decoration:none"><div id="itemAdd" class="row">
             <i class="mi">edit</i> Edit
           </div></a>
           <br>
@@ -57,21 +57,14 @@
       </div>
 
         <div class="dashboard">
-          {% for item in items %}
-            <div  id="itemList" class="row">
-                <div style="width: 100%">{{item}}</div>
-                <div ><button><a href = "/delete{{ item[1] }}"><i class="mi">delete</i></a></button></div>
-                <a href="/modify" id="edit">edit</a>
-            </div>
-          {% endfor %}
+
+
         </div>
 
         <div id="item-preview">
           {% for item in items %}
             <div  id="itemList" class="row">
                 <div style="width: 100%">{{item}}</div>
-                <div ><button><a href = "/delete{{ item[1] }}"><i class="mi">delete</i></a></button></div>
-                <a href="/modify" class="button">edit</a>
             </div>
           {% endfor %}
         </div>
