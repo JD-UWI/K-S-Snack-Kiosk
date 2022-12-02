@@ -125,6 +125,29 @@ def search():
    else: 
        w = showIT(n, 0)
   return render_template("L4SearchItem.html", info = w)
+
+#Notifications
+@app.route("/notify", methods=['GET', 'POST'])
+def notify():
+  if request.method == 'POST':
+    # query(
+    # "SELECT item_qty FROM `items`")
+    # return()
+
+    # threshold = request.form.get("number")
+    # if threshold >=  itemQty:
+    #   return alert("")
+    # else:
+    #   pass
+
+    # return 
+    # if (threshold) > 10:
+    qty = request.form.get("itemQty")
+    # if threshold <= qty:
+    # flash("Item has fallen below minimum stock level")   
+     
+    # return redirect(request.url)
+  return render_template("L4Notification.html")
   
 
 @app.route("/orderitems", methods=['GET', 'POST'])
