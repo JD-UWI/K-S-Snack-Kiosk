@@ -1,0 +1,27 @@
+{% extends 'L4Main.html' %}
+
+{% block head %} 
+  <title>Inventory Management</title>
+{% endblock %}
+
+{% block body %}
+<h1>Order an Item</h1>
+<div id="itemWrap">
+
+     
+
+     
+  {% for item in items %}
+    <div  id="itemList" class="row">
+        <div style="width: 100%">{{item}}</div>
+        <div ><button><a href = "/email{{ item[5] }}"><i class="mi">mail</i></a></button></div>
+
+    </div>
+  {% endfor %}
+  <button><a href = "/"> Return </a></button>
+
+{% endblock %}
+
+{%block foot%}
+  <p>Copyright &copy; 2022, K&S Snack Kiosk</p>
+{% endblock %}
