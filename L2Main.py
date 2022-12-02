@@ -122,7 +122,12 @@ def search():
   return render_template("L4SearchItem.html", info = w)
   
 
-
+@app.route("/email", methods=['GET', 'POST'])
+def email():
+  server.starttls()
+  server.login('oraynemc10@gmail.com','fteakcjaerfvvohv')
+  server.sendmail('oraynemc10@gmail.com','oraynemc10@yahoo.com','New items please')
+  print('mailsnet')
 
 
     
