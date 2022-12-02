@@ -1,5 +1,5 @@
-# (A) INIT
-# (A1) LOAD MODULES
+
+#LOAD MODULES
 from flask import Flask, render_template, request, make_response, escape
 import sqlite3, json
 import smtplib
@@ -8,7 +8,7 @@ server=smtplib.SMTP('smtp.gmail.com',587)
 server.starttls()
 
 
-# (A2) FLASK SETTINGS + INIT
+#FLASK SETTINGS + INIT
 HOST_NAME = "localhost"
 HOST_PORT = 80
 DB = "inventory.db"
@@ -23,11 +23,11 @@ def select (sql, data=[]):
   conn.close()
   return results
 
-# (D) GET ALL ITEMS
+#GET ALL ITEMS
 def getAll ():
   return select("SELECT * FROM `items`")
 
-# (B) HELPER - RUN SQL QUERY
+#HELPER - RUN SQL QUERY
 def query (sql, data):
   conn = sqlite3.connect(DB)
   cursor = conn.cursor()
@@ -35,7 +35,7 @@ def query (sql, data):
   conn.commit()
   conn.close()
 
-# (G) SAVE ITEM Function
+# SAVE ITEM Function
 def save (Itemid, Itemname,qty,cost,suplier,supemail):
   # (G1) ADD NEW
   query(
