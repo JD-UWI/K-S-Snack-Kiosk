@@ -6,7 +6,7 @@
 
 {% block body %} 
 <div class="container">
-    <h1>Edit items</h1>
+    <h1>Edit item</h1>
 
         <form method="post">
 
@@ -25,11 +25,15 @@
           <label for="suplemail">Supplier Email:</label>
           <input type="text" name="supplierEmail" id="suplemail" />
           <br>
-          <input type="submit" value="Confirm"> <button><a href="/">Return</a></button>
+          <input type="submit" value="Confirm" onclick="return confirm('Are you sure?')">
+          
         </form>
-
+        <br>
+        <button><a href="/editable-items">Return</a></button>
 </div>
+
 {% endblock %}
+
 
 {% block foot %}
 <p>Copyright &copy; 2022, K&S Snack Kiosk</p>

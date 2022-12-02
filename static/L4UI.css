@@ -42,19 +42,31 @@ h2{
 
 }
 
-.navbar{
-
- padding: 20px;
- margin-bottom: 20px;
- display: grid;
- grid-template-columns: 1fr;
- justify-content: center;
+#dash-nav{
+  background-color: rgb(144, 150, 150);
+  padding: 20px;
+  margin: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
 }
+
 .dashboard{
   background-color: rgb(144, 150, 150);
-  padding: 15px;
-  margin: auto;
+  margin: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
   padding: 150px;
+  display:contents;
+  
+}
+.dashboard notifications{
+  background-color: rgb(29, 230, 230);
+  margin: 50px;
+  padding: 250px;
+  width: 100%;
 }
 
 /* (A) CONTAINER */
@@ -62,7 +74,7 @@ h2{
   /* (A1) GRID LAYOUT */
   display: grid;
    /* (A2) SPECIFY COLUMNS */
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   column-gap: 5px;
   margin: auto;
 }

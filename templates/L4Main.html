@@ -34,7 +34,7 @@
             <i class="mi">search</i> Search
           </div></a>
           <br>
-          <a href="/modify" style="text-decoration:none"><div id="itemAdd" class="row">
+          <a href="/editable" style="text-decoration:none"><div id="itemAdd" class="row">
             <i class="mi">edit</i> Edit
           </div></a>
           <br>
@@ -49,8 +49,23 @@
 
     </div>
 
-    <div class="dashboard">
-      <h2>Preview</h2>
+    <div class="container">
+      <div id="dash-nav">
+        <h2>  </h2>
+        <h2>Alerts</h2>
+        <h2>  </h2>
+      </div>
+
+        <div class="dashboard">
+          {% for item in items %}
+            <div  id="itemList" class="row">
+                <div style="width: 100%">{{item}}</div>
+                <div ><button><a href = "/delete{{ item[1] }}"><i class="mi">delete</i></a></button></div>
+                <a href="/modify" id="edit">edit</a>
+            </div>
+          {% endfor %}
+        </div>
+
         <div id="item-preview">
           {% for item in items %}
             <div  id="itemList" class="row">
@@ -59,7 +74,6 @@
                 <a href="/modify" class="button">edit</a>
             </div>
           {% endfor %}
-          <button><a href = "/"> Return </a></button>
         </div>
 
     </div>
