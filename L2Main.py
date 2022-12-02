@@ -32,13 +32,13 @@ def query (sql, data):
   conn.close()
 
 # (G) SAVE ITEM Function
-def save (Itemname,qty,cost,suplier,supemail):
+def save (Itemid, Itemname,qty,cost,suplier,supemail):
   # (G1) ADD NEW
   query(
       """INSERT INTO "items" 
-      (`item_name`, `item_qty`, `item_cost`, 'suplname', 'suplemail') 
-      VALUES (?, ?, ?, ?, ?)""",
-      [Itemname,qty,cost,suplier,supemail])
+      ('item_ID', `item_name`, `item_qty`, `item_cost`, 'suplname', 'suplemail') 
+      VALUES (?, ?, ?, ?, ?, ?)""",
+      [Itemid, Itemname,qty,cost,suplier,supemail])
 
 # Modify Item Function
 def edit (item_ID,name,qty,cost,suplier,supemail):
@@ -60,13 +60,18 @@ def main():
 def add():
   if request.method == 'POST':
     nm = request.form.get("item_name")
-    #iID = request.form.get("item_ID")
+    iID = request.form.get("item_ID")
     qty = request.form.get("itemQty") 
     cost = request.form.get("item_cost")
     isn = request.form.get("suplname") 
     ise = request.form.get("suplemail")
-    save(nm,qty,cost,isn,ise)
+    save(iID, nm,qty,cost,isn,ise)
   return render_template("L4Add.html")
+
+@app.route("/delete<string:ID>")
+def delete (ID):
+  query("DELETE FROM `items` WHERE `item_ID`=?", [ID])
+  return render_template("L4AddDelete.html", items=getAll())
 
 @app.route("/adddelete")
 def AD():
@@ -78,12 +83,12 @@ def AD():
 def modify():
   if request.method == 'POST':
     nm = request.form.get("item_name")
-    #iID = request.form.get("item_ID")
+    iID = request.form.get("item_ID")
     qty = request.form.get("itemQty") 
     cost = request.form.get("item_cost")
     isn = request.form.get("suplname") 
     ise = request.form.get("suplemail")
-    edit(nm,qty,cost,isn,ise)
+    edit(iID, nm,qty,cost,isn,ise)
   return render_template("L4ModifyItem.html")
 
 #Show Item
@@ -118,7 +123,12 @@ def search():
   return render_template("L4SearchItem.html", info = w)
   
 
-
+@app.route("/email", methods=['GET', 'POST'])
+def email():
+  server.starttls()
+  server.login('oraynemc10@gmail.com','fteakcjaerfvvohv')
+  server.sendmail('oraynemc10@gmail.com','oraynemc10@yahoo.com','New items please')
+  print('mailsnet')
 
 
     

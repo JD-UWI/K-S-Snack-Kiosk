@@ -1,32 +1,29 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Inventory Management</title>
-    <link rel="stylesheet" href="static/L4UI.css">
-  </head>
-  <body>
-    <!-- (A) ITEMS LIST -->
-    <h1>Items</h1>
+{% extends 'L4Main.html' %}
 
-    <div id="itemWrap">
+{% block head %} 
+  <title>Inventory Management</title>
+{% endblock %}
+
+{% block body %}
+<h1>Add or Delete an Item</h1>
+<div id="itemWrap">
 
      
 
       <a href="/newitem" style="text-decoration:none"><div id="itemAdd" class="row">
         <i class="mi">add_box</i>
       </div></a> <!-- add new button -->
-
-        {% for item in items %}
-        <div  id="itemList" class="row">
-          <div style="width: 100%">{{item}}</div>
-          <div  style="display: inline-block; text-align: right; width: 45%"><i class="mi">delete</i>
-        </div>
-      </div>
-        {% endfor %}
-
+  {% for item in items %}
+    <div  id="itemList" class="row">
+        <div style="width: 100%">{{item}}</div>
+        <div ><button><a href = "/delete{{ item[1] }}"><i class="mi">delete</i></a></button></div>
 
     </div>
-      
-    </div>
-  </body>
-</html>
+  {% endfor %}
+  <button><a href = "/"> Return </a></button>
+
+{% endblock %}
+
+{%block foot%}
+  <p>Copyright &copy; 2022, K&S Snack Kiosk</p>
+{% endblock %}
