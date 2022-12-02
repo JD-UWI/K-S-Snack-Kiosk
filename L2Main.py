@@ -111,9 +111,51 @@ def search():
        w = showIT(n, 0)
   return render_template("L4SearchItem.html", info = w)
   
+#Sort Item
+def sort(l, n, s):
+  ol = []
+  r = 0
+  def h(a, b, l, r, e):
+    if 0 == len(b):   
+      return l
+    elif l == []:
+      l = l + [b[0]]
+      return h(0, b[1:], l, 0, e)
+    elif b[0][e][r]>l[-1][e][r] and b[0][e][0]>=l[-1][e][0]:
+      l = l + [b[0]]
+      return h(0, b[1:], l, 0, e)
+    elif b[0][e][r] < l[a][e][r]:
+      l = l[:a] + [b[0]] + l[a:]
+      return h(0, b[1:], l, 0, e)
+    elif b[0][e][r] > l[a][e][r]:
+      return h(a+1, b, l, 0, e)
+    else:
+      try:
+       if b[0][e][r] == l[a][e][r]:
+         return(h(0, b, l, r+1, e))
+      except IndexError:
+       if len(b[0][e]) > len(l[a][e]):
+         l = l[:a+1] + [b[0]] + l[a+1:]
+         return h(0, b[1:], l, 0, e)
+       else:
+         l = l[:a] + [b[0]] + l[a:]
+         return h(0, b[1:], l, 0, e)
+       return h(0, b, l, 0, e)
+    return h(a, b, l, r, e)
+  return(h(l, n, ol, r, s))
 
-
-
+#Show Sort
+@app.route("/sort", methods=['GET', 'POST'])
+def sortS():
+  g = getAll()
+  w = []
+  if request.method == 'POST':
+    s = request.form.get("order")
+    if s == None or s == '':
+      w = sort(0, g, 0)
+    else:
+      w = sort(0, g, int(s))
+  return render_template("L4SortItem.html", lst = w)
 
     
 # (D) START

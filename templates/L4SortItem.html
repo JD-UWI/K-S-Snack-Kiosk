@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="static/L4UI.css">
+  </head>
+  <body>
+
+
+        <!-- (B) SEARCH ITEM -->
+<h1>Sort Items in Database by </h1>
+
+<form method = "post">
+<legend>Choose what to sort by:</legend>
+	<input type="radio" name="order" value=0>
+	<label for="order">Name</label>
+	<input type="radio" name="order" value=1>
+	<label for="order">ID#</label>
+<br>
+<br>
+<input type = "submit">
+</form>
+<div id="itemWrap">
+
+      
+        {% for item in lst %}
+        <div id="itemFound" class="row">{{item}}</div>
+        {% endfor %}
+
+
+   
+    </div>
+<button>
+<a href="/search">Return</a>
+  </button>
+<br>
+<button>
+
+  <a href="/">HomePage</a>
+  </button>
+  </body>
+</html>
+
