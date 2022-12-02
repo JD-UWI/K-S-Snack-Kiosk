@@ -101,8 +101,8 @@ def modify():
 
 @app.route("/edit<string:ID>")
 def editItem(ID):
-  item =query("SELECT * FROM `items` WHERE `ID`=?", [ID])
-  return render_template("L4ModifyItems.html", items=item)  
+  query("SELECT * FROM `items` WHERE `ID`=?", [ID])
+  return render_template("L4ModifyItems.html", items=getAll())  
 
 
 
