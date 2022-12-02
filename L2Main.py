@@ -2,6 +2,10 @@
 # (A1) LOAD MODULES
 from flask import Flask, render_template, request, make_response, escape
 import sqlite3, json
+import smtplib
+
+server=smtplib.SMTP('smtp.gmail.com',587)
+server.starttls()
 
 
 # (A2) FLASK SETTINGS + INIT
@@ -122,13 +126,17 @@ def search():
   return render_template("L4SearchItem.html", info = w)
   
 
-@app.route("/email", methods=['GET', 'POST'])
-def email():
-  server.starttls()
-  server.login('oraynemc10@gmail.com','fteakcjaerfvvohv')
-  server.sendmail('oraynemc10@gmail.com','oraynemc10@yahoo.com','New items please')
-  print('mailsnet')
+@app.route("/orderitems", methods=['GET', 'POST'])
+def order():
+  return render_template("L4Email.html", items=getAll())
 
+@app.route("/email<string:suplemail>")
+def email (suplemail):
+  
+  server.login('oraynemc10@gmail.com','fteakcjaerfvvohv')
+  server.sendmail('oraynemc10@gmail.com',suplemail,'New items please')
+  print('mailsnet')
+  return render_template("L4Email.html", items=getAll())
 
     
 # (D) START
