@@ -17,19 +17,32 @@
           <input type="text" id="iteN" name="itemN">
         </div>
 
-        <div id="itemNumber">
-          <label for="ite#">Item ID:</label>
-          <input type="text" id="ite#" name="item#" >
-        </div>
 
-    <input type = "submit"> <button><a href = "/"> Return </a></button>
-    <br>
-    <br>
-    <div id="itemFound" class="row">{{info}}</div>      
-    </form>
-</div>
+    <div>
+      <label for="ite#">Item ID:</label>
+      <input type="text" id="ite#" name="item#" >
+      
+    </div>
+<input type = "submit">
+<br>
+<br>
+<div id="itemFound" class="row">{{info}}</div>	    
+   
+</form>
 
-{% endblock %}
+<div id="itemSort" class="row">
+	<a href="/sort"><i class="mi">sort</i></a> <!-- add new button -->
+         
+      </div>
+<br>
+<button>
+
+  
+
+  <a href="/">HomePage</a>
+  </button>
+</body>
+</html>
 
 {%block foot%}
 <p>Copyright &copy; 2022, K&S Snack Kiosk</p>
