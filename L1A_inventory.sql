@@ -17,18 +17,6 @@ INSERT INTO "items" VALUES
 (NULL,'ID#','Item1',10,101.00,'SupliersRUs','SRUs@email.com'),
 (NULL,'ID#2','Item2',15,115.23,'SupliersRUs','SRUs@email.com');
 
--- ITEMS MOVEMENT
-CREATE TABLE `item_mvt` (
-  mvt_ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  item_ID INTEGER,
-  mvt_date TEXT,
-  mvt_direction VARCHAR(45) NOT NULL,
-  mvt_qty INTEGER NOT NULL,
-  mvt_notes VARCHAR(45)
-);
-
-CREATE INDEX `mvt_direction`
-  ON `item_mvt` (`mvt_direction`);
 
   -- NOTIFICATIONS TABLE
 CREATE TABLE notifications (

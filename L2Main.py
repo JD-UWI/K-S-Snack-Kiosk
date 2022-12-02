@@ -221,8 +221,8 @@ def order():
 @app.route("/email<string:suplemail>")
 def email (suplemail):
   
-  server.login('oraynemc10@gmail.com','fteakcjaerfvvohv')
-  server.sendmail('oraynemc10@gmail.com',suplemail,'New items please')  #Place email here
+  server.login('dummyaccount@gmail.com','password')
+  server.sendmail('dummyaccount@gmail.com',suplemail,'New items please')  #Place email here
   print('mailsnet')
   return render_template("L4Email.html", items=getAll())
 
