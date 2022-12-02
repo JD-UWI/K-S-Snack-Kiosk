@@ -126,9 +126,14 @@ def search():
        w = showIT(n, 0)
   return render_template("L4SearchItem.html", info = w)
 
+#GET ALL ITEMS
+def getAllNotif ():
+  return select("SELECT * FROM `notifications`")
+
 #Notifications
 @app.route("/notify", methods=['GET', 'POST'])
 def notify():
+  notifs = getAllNotif()
   if request.method == 'POST':
     # query(
     # "SELECT item_qty FROM `items`")
@@ -147,7 +152,7 @@ def notify():
     # flash("Item has fallen below minimum stock level")   
      
     # return redirect(request.url)
-  return render_template("L4Notification.html")
+  return render_template("L4Notification.html", notifs=notifs)
   
 
 @app.route("/orderitems", methods=['GET', 'POST'])

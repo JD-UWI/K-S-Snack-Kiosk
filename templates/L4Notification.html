@@ -16,6 +16,15 @@
       </div>
       <button type="submit" class="btn">Confirm</button>
       </div>
+
+      {% for item in notifs %}
+    <div  id="itemList" class="row">
+        <div style="width: 100%">{{item}}</div>
+        <div ><i class="mi">notifications_active</i></div>
+
+    </div>
+  {% endfor %}
+
       <button><a href = "/"> Return </a></button>
         
   </form>
