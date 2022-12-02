@@ -16,7 +16,7 @@
   {% for item in items %}
     <div  id="itemList" class="row">
         <div style="width: 100%">{{item}}</div>
-        <div ><button><a href = "/delete{{ item[1] }}"><i class="mi">delete</i></a></button></div>
+        <div ><button><a href = "/delete{{ item[1] }}" onclick="return confirm('Are you sure?')" ><i class="mi">delete</i></a></button></div>
 
     </div>
   {% endfor %}
